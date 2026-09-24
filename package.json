@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/KinjalT1810/github-actions-practice/issues"
   },
-  "homepage": "https://github.com/KinjalT1810/github-actions-practice#readme"
+  "homepage": "https://github.com/KinjalT1810/github-actions-practice#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  }
 }
