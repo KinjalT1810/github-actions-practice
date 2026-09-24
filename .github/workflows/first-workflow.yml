@@ -12,5 +12,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Print a message
-        run: echo "Hello World from GitHub Actions!"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run JavaScript file
+        run: node index.js
