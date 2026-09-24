@@ -26,10 +26,10 @@ jobs:
         run: npm install
 
       - name: Install Playwright browsers
-        run: npx --yes playwright@1.63.0 install --with-deps
+        run: node node_modules/playwright/cli.js install --with-deps
 
       - name: Run JavaScript file
         run: node index.js
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: node node_modules/playwright/cli.js test
