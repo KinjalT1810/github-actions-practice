@@ -35,7 +35,14 @@ jobs:
           echo "Building $APP_NAME"
           echo "Environment: $ENVIRONMENT"
           echo "Build completed successfully"
-
+          
+      - name: Check step-level environment
+        env:
+          STEP_MESSAGE: "This is a step-level variable"
+        run: |
+          echo "Application: $APP_NAME"
+          echo "Environment: $ENVIRONMENT"
+          echo "Message: $STEP_MESSAGE"
 
   test:
     runs-on: ubuntu-latest
