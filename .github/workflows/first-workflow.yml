@@ -49,6 +49,13 @@ jobs:
           echo "Application: $APP_NAME"
           echo "Environment: $ENVIRONMENT"
           echo "Step message: $STEP_MESSAGE"
+          
+      - name: Test repository secret
+        env:
+          DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
+        run: |
+          echo "Repository secret is available."
+          echo "Secret length: ${#DEMO_SECRET}"
 
   test:
     runs-on: ubuntu-latest
@@ -98,3 +105,4 @@ jobs:
           echo "Deploying $APP_NAME"
           echo "Environment: $ENVIRONMENT"
           echo "Deployment completed successfully"
+
