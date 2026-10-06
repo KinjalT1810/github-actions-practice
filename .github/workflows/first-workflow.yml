@@ -22,6 +22,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: downloaded-output
+
+      - name: Verify downloaded artifact
+        run: |
+          echo "Checking downloaded build artifact..."
+          cat downloaded-output/build-info.txt
+          test -f downloaded-output/build-info.txt
+          echo "Artifact verification passed!"
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -35,6 +48,18 @@ jobs:
           echo "Building $APP_NAME"
           echo "Environment: $ENVIRONMENT"
           echo "Build completed successfully"
+
+      - name: Create build artifact
+        run: |
+          mkdir -p output
+          echo "Build artifact for github-actions-practice" > output/build-info.txt
+          cat output/build-info.txt
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: output/build-info.txt
 
       - name: Check step-level environment
         env:
