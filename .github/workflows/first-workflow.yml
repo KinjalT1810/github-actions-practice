@@ -177,3 +177,20 @@ jobs:
     with:
       app_name: github-actions-practice
       node_version: '24'
+
+      
+  composite-action-test:
+    name: Test Composite Action
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run composite action
+        uses: ./.github/actions/setup-project
+        with:
+          node-version: '24'
+
+      - name: Verify Node.js
+        run: node --version
