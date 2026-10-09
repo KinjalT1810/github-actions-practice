@@ -1,0 +1,15 @@
+
+name: Call Shared Build
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  shared-build:
+    name: Run Organization-Style Shared Build
+    uses: KinjalT1810/qable-reusable-workflows/.github/workflows/reusable-node-build.yml@main
+    with:
+      app_name: github-actions-practice
+      node_version: '24'
