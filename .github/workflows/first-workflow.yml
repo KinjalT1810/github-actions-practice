@@ -1,5 +1,8 @@
 name: My First Workflow
 
+permissions:
+  contents: read
+
 concurrency:
   group: github-actions-practice-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
