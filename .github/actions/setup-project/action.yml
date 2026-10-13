@@ -1,5 +1,6 @@
 
 name: Setup Node Project
+
 description: Set up Node.js and install project dependencies
 
 inputs:
